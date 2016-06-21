@@ -1,0 +1,19 @@
+{
+  "name": "fireplace",
+  "homepage": "https://github.com/joaoevangelista/fireplace",
+  "authors": [
+    "João Pedro Evangelista <joaoevangelista@protonmail.com>"
+  ],
+  "description": "A Firewatch inspired index application for fires and incidents",
+  "main": "",
+  "license": "Apache2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ]
+}
