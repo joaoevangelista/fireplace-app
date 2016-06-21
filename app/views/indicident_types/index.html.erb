@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Indicident Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indicident_types.each do |indicident_type| %>
+      <tr>
+        <td><%= indicident_type.name %></td>
+        <td><%= link_to 'Show', indicident_type %></td>
+        <td><%= link_to 'Edit', edit_indicident_type_path(indicident_type) %></td>
+        <td><%= link_to 'Destroy', indicident_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Indicident type', new_indicident_type_path %>
