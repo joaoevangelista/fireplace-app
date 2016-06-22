@@ -1,41 +1,43 @@
-<%= form_for(@incident) do |f| %>
-  <% if @incident.errors.any? %>
+<div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <%= form_for(@incident) do |f| %>
+    <% if @incident.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
 
       <ul>
-      <% @incident.errors.full_messages.each do |message| %>
+        <% @incident.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :incident_type_id %><br>
-    <%= f.text_field :incident_type_id %>
+    <div class="form-group">
+      <%= f.label :incident_type_id, class: 'control-label' %>
+      <%=f.collection_select :incident_type_id, @types, :id, :name,{}, {class: "form-control"} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :action_taken, class: 'control-label' %>
+      <%= f.text_field :action_taken, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :location, class: 'control-label' %>
+      <%= f.text_field :location, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, class: 'control-label' %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :open, class: 'control-label' %>
+      <%= f.check_box :open, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Save', class: ['btn', 'btn-success'] %>
+      <%= f.hidden_field :user_id %>
+    </div>
+    <% end %>
+
   </div>
-  <div class="field">
-    <%= f.label :action_taken %><br>
-    <%= f.text_field :action_taken %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :open %><br>
-    <%= f.check_box :open %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

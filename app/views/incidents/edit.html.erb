@@ -1,6 +1,23 @@
-<h1>Editing Incident</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @incident %> |
-<%= link_to 'Back', incidents_path %>
+<div class="container spaced">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="pull-xs-left">
+      <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), incidents_path %>
+      </div>
+      <div class="pull-xs-right">
+        <%= link_to icon('eye', 'Show Report', class: 'fa-fw'), @incident %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render 'layouts/notice', notice: notice %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="text-xs-center">Editing report of an incident</h1>
+    </div>
+  </div>
+  <%= render 'form' %>
+</div>

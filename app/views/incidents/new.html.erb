@@ -1,5 +1,20 @@
-<h1>New Incident</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', incidents_path %>
+<div class="container spaced">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="pull-xs-left">
+      <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), incidents_path %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render 'layouts/notice', notice: notice %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="text-xs-center">Report Incident</h1>
+    </div>
+  </div>
+  <%= render 'form' %>
+</div>

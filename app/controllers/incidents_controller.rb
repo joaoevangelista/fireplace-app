@@ -15,6 +15,7 @@ class IncidentsController < ApplicationController
   # GET /incidents/new
   def new
     @incident = Incident.new
+    @types = IncidentType.all
   end
 
   # GET /incidents/1/edit
