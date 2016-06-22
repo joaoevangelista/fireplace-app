@@ -1,10 +1,10 @@
-<%= form_for(@indicident_type) do |f| %>
-  <% if @indicident_type.errors.any? %>
+<%= form_for(@incident_type) do |f| %>
+  <% if @incident_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@indicident_type.errors.count, "error") %> prohibited this indicident_type from being saved:</h2>
+      <h2><%= pluralize(@incident_type.errors.count, "error") %> prohibited this incident_type from being saved:</h2>
 
       <ul>
-      <% @indicident_type.errors.full_messages.each do |message| %>
+      <% @incident_type.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
