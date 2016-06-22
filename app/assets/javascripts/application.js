@@ -19,6 +19,7 @@
 //= require nprogress-turbolinks
 //= require underscore
 //= require gmaps/google
+//= require maps
 //= require_tree .
 
 NProgress.configure({
