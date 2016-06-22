@@ -14,8 +14,8 @@ class IncidentsController < ApplicationController
 
   # GET /incidents/new
   def new
-    @incident = Incident.new
-    @types = IncidentType.all
+    @incident = Incident.new({ user_id: current_user.id})
+
   end
 
   # GET /incidents/1/edit
@@ -26,6 +26,7 @@ class IncidentsController < ApplicationController
   # POST /incidents.json
   def create
     @incident = Incident.new(incident_params)
+    @incident.location = { latitude: params[:latitude], longitude: params[:longitude] }
 
     respond_to do |format|
       if @incident.save
@@ -70,6 +71,6 @@ class IncidentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def incident_params
-      params.require(:incident).permit(:incident_type_id, :action_taken, :location, :user_id, :description, :open)
+      params.require(:incident).permit(:incident_type_id, :action_taken, :user_id, :description, :open, :latitude, :longitude)
     end
 end

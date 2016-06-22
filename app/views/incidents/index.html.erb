@@ -27,7 +27,7 @@
             <th>Type</th>
             <th>Action Taken</th>
             <th>Location</th>
-            <th>User</th>
+            <th>Reporter</th>
             <th>Description</th>
             <th>Open ?</th>
             <th colspan="3"></th>
@@ -39,14 +39,16 @@
           <tr>
             <td><%= incident.incident_type.name %></td>
             <td><%= incident.action_taken %></td>
-            <td><%= incident.location %></td>
-            <td><%= incident.user %></td>
+            <td><%= incident.location.latitude.to_s.concat(', ').concat(incident.location.longitude.to_s) %></td>
+            <td><%= incident.user.name %></td>
+            <td><%= incident.description %></td>
             <td>
               <% if incident.open %>
-              <%= icon('check', 'text-success') %>
+              <%= icon('check', '', class: 'text-success') %>
               <% else %>
-              <% icon('times', 'text-danger') %>
-              <% end %></td>
+              <%= icon('times','', class: 'text-danger') %>
+              <% end %>
+            </td>
               <td><%= link_to icon('eye'), incident %></td>
               <td><%= link_to icon('pencil'), edit_incident_path(incident) %></td>
               <td><%= link_to icon('times'), incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>

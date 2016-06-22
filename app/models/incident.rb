@@ -4,7 +4,7 @@ class Incident
 
   field :action_taken, :type => String
   field :location, :type => Geo::Point
-  field :description, :type => String
+  field :description, :type => Text
   field :open, :type => Boolean
   belongs_to :incident_type
   belongs_to :user
