@@ -5,6 +5,29 @@
 # Fireplace
 A Firewatch inspired index application for fires and  incidents
 
+Fireplace aims to help watchers, rangers and anyone to see incidents ocurred on Parks,
+and report indicidents and fires.
+
+Development
+---
+
+ Fireplace is built using Rails and RethinkDB, so here is what you are going to need:
+
+  - Ruby 2.2.4 +
+  - Rails Gem installed `gem install rails` (Current version 4.2.6)
+  - RethinkDB for your [platform](https://rethinkdb.com/docs/install/)
+    - If needed you can set `RETHINKDB_URI` to customize the uri for RethinkDB.
+  - [Node.js](https://nodejs.org/en/download/) and Bower installed `npm i -g bower`
+
+
+Use the commands above to set up the project:
+ - `bundle install --without production` for gem dependencies
+ - `bower install` for asset dependencies
+ - `rake nobrainer:seed` to seed the Database
+ - `rails s` to serve
+
+Then open your browser on [localhost:3000](localhost:3000)
+
 
 Acknowledgement
 -------------
