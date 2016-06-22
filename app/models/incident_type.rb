@@ -3,4 +3,6 @@ class IncidentType
   include NoBrainer::Document::Timestamps
 
   field :name, :type => String
+
+  has_many :incidents
 end

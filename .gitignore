@@ -37,3 +37,6 @@ config/secrets.yml
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore RethinkDB folder
+rethinkdb_data/*
