@@ -9,8 +9,15 @@
           <ul class="nav navbar-nav">
 
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            
+
+          <ul class="nav navbar-nav pull-xs-right">
+            <% if current_user %>
+             <li class="nav-item"><a href="#" class="nav-link"><%= current_user.name %></a></li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+            </li>
+            <% end %>
           </ul>
         </div>
       </nav>
