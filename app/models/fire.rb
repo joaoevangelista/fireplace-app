@@ -3,7 +3,7 @@ class Fire
   include NoBrainer::Document::Timestamps
 
   field :name, :type => String
-  field :location, :type => Geojson
+  field :location, :type => Geo::Point
   field :description, :type => String
 
   belongs_to :user

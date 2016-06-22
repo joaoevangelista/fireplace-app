@@ -3,7 +3,7 @@ class Incident
   include NoBrainer::Document::Timestamps
 
   field :action_taken, :type => String
-  field :location, :type => Geojson
+  field :location, :type => Geo::Point
   field :description, :type => String
   field :open, :type => Boolean
   belongs_to :incident_type
