@@ -13,7 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap/dist/js/bootstrap
+//= require tether
+//= require bootstrap
 //= require nprogress
 //= require nprogress-turbolinks
 //= require_tree .
+
+NProgress.configure({
+  showSpinner: false,
+  ease: 'ease',
+  speed: 500
+});

@@ -21,6 +21,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Use NProgress to add loader
 gem 'nprogress-rails'
+# Bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha3'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
