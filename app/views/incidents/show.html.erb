@@ -1,34 +1,60 @@
-<p id="notice"><%= notice %></p>
+<div class="container spaced">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="pull-xs-left">
+        <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), incidents_path %>
+      </div>
+      <div class="pull-xs-right">
+        <%= link_to icon('pencil', 'Edit', class: 'fa-fw'), edit_incident_path(@incident) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="text-xs-center">Incident</h2>
+      <p class="text-xs-center text-muted"><i><%= @incident.incident_type.name %></i></p>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <span class="text-muted">Status:&nbsp;</span>
+      <span>
+        <%if @incident.open %>
+        <span class="text-danger">Not Resolved</span>
+        <% else %>
+        <span class="text-success">Resolved</span>
+        <% end %>
+      </span>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12">
+      <span class="text-muted">Action Taken:&nbsp;</span>
+      <%= @incident.action_taken %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <article class="text-xs-justified description">
+        <%= @incident.description %>
+      </article>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <section class="map" id="map">
 
-<p>
-  <strong>Incident type:</strong>
-  <%= @incident.incident_type %>
-</p>
-
-<p>
-  <strong>Action taken:</strong>
-  <%= @incident.action_taken %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @incident.location %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @incident.user %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @incident.description %>
-</p>
-
-<p>
-  <strong>Open:</strong>
-  <%= @incident.open %>
-</p>
-
-<%= link_to 'Edit', edit_incident_path(@incident) %> |
-<%= link_to 'Back', incidents_path %>
+      </section>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <span class="text-muted">Latitude:&nbsp;</span>
+        <span><%= @incident.location.latitude %></span>
+      <span class="text-muted">Longitude:&nbsp;</span>
+      <span><%= @incident.location.longitude %></span>
+    </div>
+  </div>
+</div>
