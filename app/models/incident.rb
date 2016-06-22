@@ -1,0 +1,11 @@
+class Incident
+  include NoBrainer::Document
+  include NoBrainer::Document::Timestamps
+
+  field :action_taken, :type => String
+  field :location, :type => Geojson
+  field :description, :type => String
+  field :open, :type => Boolean
+  belongs_to :incident_type
+  belongs_to :user
+end

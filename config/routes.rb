@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :fires
+  resources :incidents
   devise_for :users
   resources :indicident_types
   # The priority is based upon order of creation: first created -> highest priority.

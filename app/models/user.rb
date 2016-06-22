@@ -37,4 +37,7 @@ class User
   # field :locked_at,       :type => Time
   include NoBrainer::Document::Timestamps
 
+  has_many :incidents
+  has_many :fires
+
 end

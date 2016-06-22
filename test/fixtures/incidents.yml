@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  incident_type_id: 
+  action_taken: MyString
+  location: 
+  user_id: 
+  description: MyString
+  open: false
+
+two:
+  incident_type_id: 
+  action_taken: MyString
+  location: 
+  user_id: 
+  description: MyString
+  open: false
