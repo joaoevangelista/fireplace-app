@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="pull-xs-left">
-        <%= link_to 'Back', incident_types_path %>
+        <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), incident_types_path %>
       </div>
       <div class="pull-xs-right">
-        <%= link_to 'Edit', edit_incident_type_path(@incident_type) %>
+        <%= link_to icon('pencil', 'Edit', class: 'fa-fw'), edit_incident_type_path(@incident_type) %>
       </div>
     </div>
   </div>
@@ -17,6 +17,13 @@
       <h1 class="text-xs-center">Incidents of <%= @incident_type.name %></h1>
     </div>
   </div>
+  <% if @incident_type.incidents.empty? %>
+  <div class="row">
+    <div class="col-xs-12">
+      <p class="lead text-xs-center text-muted">No incidents of this type reported yet.</p>
+    </div>
+  </div>
+  <% else %>
   <div class="row">
     <div class="col-xs-12">
       <table class="table">
@@ -36,15 +43,22 @@
               <td>incident.created_at</td>
               <td>incident.action_taken</td>
               <td>incident.location</td>
-              <td>incident.open</td>
+              <td>
+                <% if incident.open %>
+                <%= icon('check', 'text-success') %>
+                <% else %>
+                <% icon('times', 'text-danger') %>
+                <% end %>
+              </td>
               <td>incident.user.name</td>
-              <td><%= link_to 'Show', incident %></td>
-              <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
-              <td><%= link_to 'Destroy', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to icon('eye'), incident %></td>
+              <td><%= link_to icon('pencil'), edit_incident_path(incident) %></td>
+              <td><%= link_to icon('times'), incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
         </tbody>
       </table>
     </div>
   </div>
+  <% end %>
 </div>

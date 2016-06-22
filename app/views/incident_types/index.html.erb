@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="pull-xs-right">
-        <%= link_to 'New Incident type', new_incident_type_path %>
+        <%= link_to icon('plus', 'New Incident Type', class: 'fa-fw'), new_incident_type_path %>
       </div>
     </div>
   </div>
@@ -31,9 +31,9 @@
           <% @incident_types.each do |incident_type| %>
           <tr>
             <td><%= incident_type.name %></td>
-            <td><%= link_to 'Show', incident_type %></td>
-            <td><%= link_to 'Edit', edit_incident_type_path(incident_type) %></td>
-            <td><%= link_to 'Destroy', incident_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to icon('eye'), incident_type %></td>
+            <td><%= link_to icon('pencil'), edit_incident_type_path(incident_type) %></td>
+            <td><%= link_to icon('times'), incident_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
           <% end %>
         </tbody>

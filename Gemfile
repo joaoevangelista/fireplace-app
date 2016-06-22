@@ -21,6 +21,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Use NProgress to add loader
 gem 'nprogress-rails'
+# Use font awesome gem to use sprockets
+gem 'font-awesome-sass', '~> 4.6.2'
 # Bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha3'
 source 'https://rails-assets.org' do
