@@ -1,25 +1,25 @@
 <div class="container spaced">
   <div class="row">
-    <div class="col-xs-12">
-      <div class="pull-xs-right">
+    <div class="col-sm-12">
+      <div class="pull-right">
         <%= link_to icon('plus', 'New Incident', class: 'fa-fw'), new_incident_path %>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
         <%= render 'layouts/notice', notice: notice %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
-      <h1 class="text-xs-center">Listing Incidents</h1>
+    <div class="col-sm-12">
+      <h1 class="text-center">Listing Incidents</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <% if @incidents.empty? %>
-      <p class="lead text-muted text-xs-center">No incidents yet reported.</p>
+      <p class="lead text-muted text-center">No incidents yet reported.</p>
       <% else %>
       <table class="table">
         <thead>

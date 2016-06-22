@@ -1,31 +1,31 @@
 <div class="container spaced">
   <div class="row">
-    <div class="col-xs-12">
-      <div class="pull-xs-left">
+    <div class="col-sm-12">
+      <div class="pull-left">
         <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), incident_types_path %>
       </div>
-      <div class="pull-xs-right">
+      <div class="pull-right">
         <%= link_to icon('pencil', 'Edit', class: 'fa-fw'), edit_incident_type_path(@incident_type) %>
       </div>
     </div>
   </div>
-  <div class="row col-xs-12">
+  <div class="row col-sm-12">
     <%= render 'layouts/notice', notice: notice %>
   </div>
   <div class="row">
-    <div class="col-xs-12">
-      <h1 class="text-xs-center">Incidents of <%= @incident_type.name %></h1>
+    <div class="col-sm-12">
+      <h1 class="text-center">Incidents of <%= @incident_type.name %></h1>
     </div>
   </div>
   <% if @incident_type.incidents.empty? %>
   <div class="row">
-    <div class="col-xs-12">
-      <p class="lead text-xs-center text-muted">No incidents of this type reported yet.</p>
+    <div class="col-sm-12">
+      <p class="lead text-center text-muted">No incidents of this type reported yet.</p>
     </div>
   </div>
   <% else %>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <table class="table">
         <thead>
           <tr>

@@ -24,10 +24,7 @@ gem 'nprogress-rails'
 # Use font awesome gem to use sprockets
 gem 'font-awesome-sass', '~> 4.6.2'
 # Bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha3'
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-end
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Maps
 gem 'gmaps4rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

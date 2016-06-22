@@ -1,23 +1,23 @@
 <div class="container spaced">
   <div class="row">
-    <div class="col-xs-12">
-      <div class="pull-xs-left">
+    <div class="col-sm-12">
+      <div class="pull-left">
         <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), incidents_path %>
       </div>
-      <div class="pull-xs-right">
+      <div class="pull-right">
         <%= link_to icon('pencil', 'Edit', class: 'fa-fw'), edit_incident_path(@incident) %>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
-      <h2 class="text-xs-center">Incident</h2>
-      <p class="text-xs-center text-muted"><i><%= @incident.incident_type.name %></i></p>
+    <div class="col-sm-12">
+      <h2 class="text-center">Incident</h2>
+      <p class="text-center text-muted"><i><%= @incident.incident_type.name %></i></p>
     </div>
   </div>
   <br>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <span class="text-muted">Status:&nbsp;</span>
       <span>
         <%if @incident.open %>
@@ -30,33 +30,33 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <span class="text-muted">Action Taken:&nbsp;</span>
       <%= @incident.action_taken %>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
-      <article class="text-xs-justified description">
+    <div class="col-sm-12">
+      <article class="text-justified description">
         <%= @incident.description %>
       </article>
     </div>
   </div>
   <div class="row spaced">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <h3>Incident Location</h3>
       <hr>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <section class="map" id="map">
 
       </section>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <span class="text-muted">Latitude:&nbsp;</span>
       <span><%= @incident.location.latitude %></span>
       <span class="text-muted">Longitude:&nbsp;</span>
