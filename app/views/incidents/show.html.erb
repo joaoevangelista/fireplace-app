@@ -11,6 +11,11 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
+        <%= render 'layouts/notice', notice: notice %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
       <h2 class="text-center">Incident</h2>
       <p class="text-center text-muted"><i><%= @incident.incident_type.name %></i></p>
     </div>
