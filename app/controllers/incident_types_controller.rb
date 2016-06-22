@@ -1,6 +1,6 @@
 class IncidentTypesController < ApplicationController
   before_action :set_incident_type, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   # GET /incident_types
   # GET /incident_types.json
   def index

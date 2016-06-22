@@ -37,10 +37,11 @@
       <%= f.label :description, class: 'control-label' %>
       <%= f.text_area :description, class: 'form-control' %>
     </div>
-    <div class="form-group">
-      <%= f.label :open, class: 'control-label' %>
-      <%= f.check_box :open, class: 'form-control' %>
-    </div>
+    <div class="checkbox">
+     <label>
+      <%= f.check_box :open %> Is Open?
+     </label>
+   </div>
     <div class="form-group">
       <%= f.submit 'Save', class: ['btn', 'btn-success'] %>
       <%= f.hidden_field :user_id %>
