@@ -1,23 +1,50 @@
 <nav class="navbar navbar-light bg-faded">
-        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header">
-          &#9776;
-        </button>
-        <div class="collapse navbar-toggleable-xs" id="navbar-header">
-          <a class="navbar-brand" href="#">
-            <%= image_tag 'bonfire.svg', height: 30 %>
-          </a>
-          <ul class="nav navbar-nav">
-
-          </ul>
-
-          <ul class="nav navbar-nav pull-xs-right">
-            <% if current_user %>
-             <li class="nav-item"><a href="#" class="nav-link"><%= current_user.name %></a></li>
-            <% else %>
-            <li class="nav-item">
-              <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
-            </li>
-            <% end %>
-          </ul>
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header">
+    &#9776;
+  </button>
+  <div class="collapse navbar-toggleable-xs" id="navbar-header">
+    <a class="navbar-brand" href="#">
+      <%= image_tag 'bonfire.svg', height: 30 %>
+    </a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          Fires
+        </a>
+        <div class="dropdown-menu" aria-labelledby="Preview">
+          <%= link_to icon('eye', 'Reported Fires', class: 'fa-fw'), fires_path, class: 'dropdown-item' %>
+          <%= link_to icon('plus', 'Report New', class: 'fa-fw'), new_fire_path, class: 'dropdown-item' %>
         </div>
-      </nav>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          Incidents
+        </a>
+        <div class="dropdown-menu" aria-labelledby="Preview">
+          <%= link_to icon('eye', 'Reported Incidents', class: 'fa-fw'), incidents_path, class: 'dropdown-item' %>
+          <%= link_to icon('plus', 'Report New', class: 'fa-fw'), new_incident_path, class: 'dropdown-item' %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          Incident Types
+        </a>
+        <div class="dropdown-menu" aria-labelledby="Preview">
+          <%= link_to icon('eye', 'Show Types', class: 'fa-fw'), incident_types_path, class: 'dropdown-item' %>
+          <%= link_to icon('plus', 'Create', class: 'fa-fw'), new_incident_type_path, class: 'dropdown-item' %>
+        </div>
+      </li>
+
+    </ul>
+
+    <ul class="nav navbar-nav pull-xs-right">
+      <% if current_user %>
+      <li class="nav-item"><a href="#" class="nav-link"><%= current_user.name %></a></li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
