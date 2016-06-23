@@ -29,6 +29,11 @@ Use the commands above to set up the project:
 
 Then open your browser on [localhost:3000](localhost:3000)
 
+[WIP] Testing
+----
+
+To keep the code beatiful we use RuboCop as static code analyzer, to run it you need to install via bundle or by running `gem install rubocop`, basic usages can be found on the [documentation](http://rubocop.readthedocs.io/en/latest/basic_usage/).
+
 
 Acknowledgement
 -------------

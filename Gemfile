@@ -55,6 +55,8 @@ group :development, :test do
   gem 'byebug'
   # Use RSpec to do testing
    gem 'rspec-rails', '~> 3.4'
+   # Use RuboCop as Linter
+   gem 'rubocop', '~> 0.40.0', require: false
 end
 
 group :development do
