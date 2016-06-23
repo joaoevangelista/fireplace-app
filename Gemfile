@@ -54,14 +54,16 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Use RSpec to do testing
-   gem 'rspec-rails', '~> 3.4'
-   # Use RuboCop as Linter
-   gem 'rubocop', '~> 0.40.0', require: false
+  gem 'rspec-rails', '~> 3.4'
+  # Use RuboCop as Linter
+  gem 'rubocop', '~> 0.40.0', require: false
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  # Use guard to run the tests
+  gem 'guard-rspec', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
