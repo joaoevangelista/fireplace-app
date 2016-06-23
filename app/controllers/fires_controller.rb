@@ -5,7 +5,7 @@ class FiresController < ApplicationController
   # GET /fires
   # GET /fires.json
   def index
-    @fires = Fire.all
+    @fires = Fire.order(:updated_at).page params[:page]
   end
 
   # GET /fires/1

@@ -6,5 +6,7 @@ class Fire
   field :location, :type => Geo::Point
   field :description, :type => String
 
+  paginates_per 20
+
   belongs_to :user
 end

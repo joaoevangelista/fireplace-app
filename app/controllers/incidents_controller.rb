@@ -5,7 +5,7 @@ class IncidentsController < ApplicationController
   # GET /incidents
   # GET /incidents.json
   def index
-    @incidents = Incident.all
+    @incidents = Incident.order(:updated_at).page params[:page]
   end
 
   # GET /incidents/1

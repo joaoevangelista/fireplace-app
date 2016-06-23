@@ -4,5 +4,7 @@ class IncidentType
 
   field :name, :type => String
 
+  paginates_per 20
+
   has_many :incidents
 end

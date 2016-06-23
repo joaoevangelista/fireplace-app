@@ -84,6 +84,9 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kaminari-nobrainer (0.1.0)
+      kaminari (>= 0.16.1)
+      nobrainer (>= 0.20.0)
     kgio (2.10.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -197,6 +200,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  kaminari-nobrainer
   nobrainer
   nprogress-rails
   rails (= 4.2.6)
