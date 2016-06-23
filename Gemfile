@@ -57,6 +57,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4'
   # Use RuboCop as Linter
   gem 'rubocop', '~> 0.40.0', require: false
+  gem 'rubocop-rspec', '~> 1.5.0', require: false
 end
 
 group :development do
