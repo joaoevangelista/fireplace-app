@@ -34,7 +34,7 @@ Then open your browser on [localhost:3000](localhost:3000)
 
 To keep the code beatiful we use RuboCop as static code analyzer, to run it you need to install via bundle or by running `gem install rubocop`, basic usages can be found on the [documentation](http://rubocop.readthedocs.io/en/latest/basic_usage/).
 
-RSpec is powered by a Guard, to run it and all tests you use the following commands: `bundle exec rspec` and it will start to watch your specs folder
+RSpec is powered by a Guard, to run it and all tests you use the following commands: `bundle exec guard` and it will start to watch your specs folder
 
 
 Acknowledgement
