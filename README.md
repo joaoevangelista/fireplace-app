@@ -3,7 +3,7 @@
 </p>
 
 # Fireplace
-A Firewatch inspired index application for fires and  incidents
+A [Firewatch](http://www.firewatchgame.com) inspired index application for fires and  incidents
 
 Fireplace aims to help watchers, rangers and anyone to see incidents ocurred on Parks,
 and report indicidents and fires.
@@ -19,6 +19,7 @@ Development
     - If needed you can set `RETHINKDB_URI` to customize the uri for RethinkDB.
   - [Node.js](https://nodejs.org/en/download/) and Bower installed `npm i -g bower`
 
+To use Google Maps you are going to need an API Key which you can find an excellent documentation on how to get and everything else on [their page](https://developers.google.com/maps/documentation/javascript/). Then set the `FIREPLACE_MAPS_KEY` environment variable with the value of your key.
 
 Use the commands above to set up the project:
  - `bundle install --without production` for gem dependencies
