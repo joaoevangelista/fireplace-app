@@ -10,7 +10,9 @@ function generateMap(mLocations) {
       markers = handler.addMarkers(mLocations);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
+      handler.getMap().setZoom(10);
     }
   );
+
   return handler;
 }

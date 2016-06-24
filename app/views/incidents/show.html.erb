@@ -5,67 +5,93 @@
         <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), incidents_path %>
       </div>
       <div class="pull-right">
-        <%= link_to icon('pencil', 'Edit', class: 'fa-fw'), edit_incident_path(@incident) %>
+
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12">
-        <%= render 'layouts/notice', notice: notice %>
+      <%= render 'layouts/notice', notice: notice %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <h2 class="text-center">Incident</h2>
-      <p class="text-center text-muted"><i><%= @incident.incident_type.name %></i></p>
+  <div class="row clearfix">
+    <div class="col-md-8">
+      <h1 class="text-center">Incident</h1>
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="row clearfix">
+            <div class="col-md-12">
+              <div class="well well-sm">
+                <p class="text-muted">Action Taken:</p>
+                <p><%= @incident.action_taken %></p>
+              </div>
+            </div>
+          </div>
+          <div class="row clearifx">
+            <div class="col-md-12">
+              <p> <%= @incident.description%> </p>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="col-md-12">
+              <div class="map" id="map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-sm-12">
-      <span class="text-muted">Status:&nbsp;</span>
-      <span>
-        <%if @incident.open %>
-        <span class="text-danger">Not Resolved</span>
-        <% else %>
-        <span class="text-success">Resolved</span>
-        <% end %>
-      </span>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-sm-12">
-      <span class="text-muted">Action Taken:&nbsp;</span>
-      <%= @incident.action_taken %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <article class="text-justified description">
-        <%= @incident.description %>
-      </article>
-    </div>
-  </div>
-  <div class="row spaced">
-    <div class="col-sm-12">
-      <h3>Incident Location</h3>
-      <hr>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <section class="map" id="map">
-
-      </section>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <span class="text-muted">Latitude:&nbsp;</span>
-      <span><%= @incident.location.latitude %></span>
-      <span class="text-muted">Longitude:&nbsp;</span>
-      <span><%= @incident.location.longitude %></span>
+    <div class="col-md-4 details-section">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-muted">Type:</p>
+          <p><%= @incident.incident_type.name %></p>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-muted">Occurred at:</p>
+          <p><%= date_time @incident.created_at %></p>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-muted">Status:</p>
+          <% if @incident.open %>
+          <p class="text-danger"><span class="i fa fa-fw fa-times"></span>&nbsp;Not Resolved</p>
+          <% else %>
+          <p class="text-success"><span><i class="fa fa-fw fa-check"></i></span>&nbsp;Resolved</p>
+          <% end %>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-muted">Reporter:</p>
+          <p>
+            <span><%= image_tag gravatar(@incident.user.email, 25), height: 25, class: ['img-circle'] %></span>
+            &nbsp; <%= mail_to @incident.user.email, @incident.user.name %>
+          </p>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-muted">Location:</p>
+          <p>
+            <span class="text-muted">Latitude:&nbsp;</span><%= @incident.location.latitude %>
+            <br>
+            <span class="text-muted">Longitude:&nbsp;</span><%= @incident.location.longitude %>
+          </p>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= link_to icon('pencil', 'Edit this incident', class: 'fa-fw'), edit_incident_path(@incident), class: 'text-icon' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
