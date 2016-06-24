@@ -1,0 +1,21 @@
+image: "ruby:2.3"
+
+services:
+  - rethinkdb:latest
+
+before_script:
+  - gem install bundler         # Bundler is not installed with the image
+  - gem install rubocop         # Install rubocop globally
+  - bundle install -j $(nproc)  # Install dependencies
+
+rubocop:
+  script:
+  - rubocop
+  tags:
+  - docker
+
+rspec:
+  script:
+  - bundle exec rspec
+  tags:
+  - docker
