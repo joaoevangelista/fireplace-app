@@ -26,38 +26,40 @@
   <% else %>
   <div class="row">
     <div class="col-sm-12">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>When</th>
-            <th>Action Taken</th>
-            <th>Location</th>
-            <th>Open ?</th>
-            <th>Reporter</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>When</th>
+              <th>Action Taken</th>
+              <th>Location</th>
+              <th>Open ?</th>
+              <th>Reporter</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
             <% @incident_type.incidents.each do |incident| %>
             <tr>
-              <td>incident.created_at</td>
-              <td>incident.action_taken</td>
-              <td>incident.location</td>
+              <td><%= incident.created_at %></td>
+              <td><%= incident.action_taken %></td>
+              <td><%= incident.location %></td>
               <td>
                 <% if incident.open %>
-                <%= icon('check', 'text-success') %>
+                <%= icon('check', '', class: 'text-danger') %>
                 <% else %>
-                <% icon('times', 'text-danger') %>
+                <%= icon('times', '', class: 'text-success') %>
                 <% end %>
               </td>
-              <td>incident.user.name</td>
-              <td><%= link_to icon('eye'), incident %></td>
-              <td><%= link_to icon('pencil'), edit_incident_path(incident) %></td>
-              <td><%= link_to icon('times'), incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= incident.user.name %></td>
+              <td><%= link_to icon('eye'), incident, class: 'text-info' %></td>
+              <td><%= link_to icon('pencil'), edit_incident_path(incident), class: 'text-muted' %></td>
+              <td><%= link_to icon('times'), incident, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %></td>
             </tr>
             <% end %>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <% end %>
