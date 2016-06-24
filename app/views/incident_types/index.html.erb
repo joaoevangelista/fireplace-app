@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="pull-right">
+        <% if current_user %>
         <%= link_to icon('plus', 'New Incident Type', class: 'fa-fw'), new_incident_type_path %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -32,8 +34,10 @@
             <tr>
               <td><%= incident_type.name %></td>
               <td><%= link_to icon('eye'), incident_type, class: 'text-info' %></td>
+              <% if current_user %>
               <td><%= link_to icon('pencil'), edit_incident_type_path(incident_type), class: 'text-muted' %></td>
               <td><%= link_to icon('times'), incident_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %></td>
+              <% end %>
             </tr>
             <% end %>
           </tbody>

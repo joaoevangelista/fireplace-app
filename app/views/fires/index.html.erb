@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="pull-right">
+        <% if current_user %>
         <%= link_to icon('plus','Report new fire', class: 'fa-fw'), new_fire_path %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -36,8 +38,10 @@
               <td><%= fire.location.latitude.to_s.concat(', ').concat(fire.location.longitude.to_s) %></td>
               <td><%= fire.user.name %></td>
               <td><%= link_to icon('eye'), fire, class: 'text-info' %></td>
+              <% if current_user %>
               <td><%= link_to icon('pencil'), edit_fire_path(fire), class: 'text-muted' %></td>
               <td><%= link_to icon('times'), fire, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %></td>
+              <% end %>
             </tr>
             <% end %>
           </tbody>

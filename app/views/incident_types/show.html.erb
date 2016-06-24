@@ -5,7 +5,9 @@
         <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), incident_types_path %>
       </div>
       <div class="pull-right">
+        <% if current_user %>
         <%= link_to icon('pencil', 'Edit', class: 'fa-fw'), edit_incident_type_path(@incident_type) %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -53,8 +55,10 @@
               </td>
               <td><%= incident.user.name %></td>
               <td><%= link_to icon('eye'), incident, class: 'text-info' %></td>
+              <% if current_user %>
               <td><%= link_to icon('pencil'), edit_incident_path(incident), class: 'text-muted' %></td>
               <td><%= link_to icon('times'), incident, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %></td>
+              <% end %>
             </tr>
             <% end %>
           </tbody>

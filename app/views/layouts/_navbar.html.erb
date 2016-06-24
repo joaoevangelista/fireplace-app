@@ -17,21 +17,27 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fires<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to icon('eye', 'Reported Fires', class: 'fa-fw'), fires_path %></li>
+            <% if current_user %>
             <li><%= link_to icon('plus', 'Report New', class: 'fa-fw'), new_fire_path %></li>
+            <% end %>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Incidents <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to icon('eye', 'Reported Incidents', class: 'fa-fw'), incidents_path %></li>
+            <% if current_user %>
             <li><%= link_to icon('plus', 'Report New', class: 'fa-fw'), new_incident_path %></li>
+            <% end %>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Incident Types <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to icon('eye', 'Show Types', class: 'fa-fw'), incident_types_path %></li>
+            <% if current_user %>
             <li><%= link_to icon('plus', 'Create', class: 'fa-fw'), new_incident_type_path %></li>
+            <% end %>
           </ul>
         </li>
 

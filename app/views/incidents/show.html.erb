@@ -89,7 +89,9 @@
       </div>
       <div class="row">
         <div class="col-md-12">
+          <% if current_user %>
           <%= link_to icon('pencil', 'Edit this incident', class: 'fa-fw'), edit_incident_path(@incident), class: 'text-icon' %>
+          <% end %>
         </div>
       </div>
     </div>
