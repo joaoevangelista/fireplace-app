@@ -70,6 +70,6 @@ class FiresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fire_params
-      params.require(:fire).permit(:name, :original_area, :description, :latitude, :longitude)
+      params.require(:fire).permit(:name, :user_id, :description, :latitude, :longitude)
     end
 end
