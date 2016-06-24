@@ -41,7 +41,7 @@
           <tbody>
             <% @incident_type.incidents.each do |incident| %>
             <tr>
-              <td><%= incident.created_at %></td>
+              <td><%= date_time incident.created_at %></td>
               <td><%= incident.action_taken %></td>
               <td><%= incident.location %></td>
               <td>
