@@ -1,3 +1,12 @@
 .navbar-brand img {
   margin-top: -7px;
 }
+
+.header-logo {
+   position: absolute;
+   left: 50%;
+   margin-left: -18px;
+   top: 7px;
+   transition-duration: .3s;
+   z-index: 999;
+}
