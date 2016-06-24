@@ -8,6 +8,8 @@ A [Firewatch](http://www.firewatchgame.com) inspired index application for fires
 Fireplace aims to help watchers, rangers and anyone to see incidents ocurred on Parks,
 and report indicidents and fires.
 
+[![build status](https://gitlab.com/joaoevangelista/fireplace/badges/master/build.svg)](https://gitlab.com/joaoevangelista/fireplace/commits/master)
+
 Development
 ---
 
