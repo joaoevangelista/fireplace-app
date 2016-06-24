@@ -1,3 +1,4 @@
+# Controller for fire models
 class FiresController < ApplicationController
   before_action :set_fire, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
@@ -15,7 +16,7 @@ class FiresController < ApplicationController
 
   # GET /fires/new
   def new
-    @fire = Fire.new({user_id: current_user.id})
+    @fire = Fire.new(user_id: current_user.id)
   end
 
   # GET /fires/1/edit
@@ -63,13 +64,14 @@ class FiresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_fire
-      @fire = Fire.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def fire_params
-      params.require(:fire).permit(:name, :user_id, :description, :latitude, :longitude)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_fire
+    @fire = Fire.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def fire_params
+    params.require(:fire).permit(:name, :user_id, :description, :latitude, :longitude)
+  end
 end

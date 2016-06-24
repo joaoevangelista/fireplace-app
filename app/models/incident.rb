@@ -1,11 +1,12 @@
+# :nodoc:
 class Incident
   include NoBrainer::Document
   include NoBrainer::Document::Timestamps
 
-  field :action_taken, :type => String
-  field :location, :type => Geo::Point
-  field :description, :type => Text
-  field :open, :type => Boolean
+  field :action_taken, type: String
+  field :location, type: Geo::Point
+  field :description, type: Text
+  field :open, type: Boolean
 
   paginates_per 20
 

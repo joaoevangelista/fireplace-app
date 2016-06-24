@@ -1,3 +1,4 @@
+# Controller for incident types
 class IncidentTypesController < ApplicationController
   before_action :set_incident_type, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
@@ -28,7 +29,10 @@ class IncidentTypesController < ApplicationController
 
     respond_to do |format|
       if @incident_type.save
-        format.html { redirect_to @incident_type, notice: 'Incident type was successfully created.' }
+        format.html do
+          redirect_to @incident_type,
+                      notice: 'Incident type was successfully created.'
+        end
         format.json { render :show, status: :created, location: @incident_type }
       else
         format.html { render :new }
@@ -42,7 +46,10 @@ class IncidentTypesController < ApplicationController
   def update
     respond_to do |format|
       if @incident_type.update(incident_type_params)
-        format.html { redirect_to @incident_type, notice: 'Incident type was successfully updated.' }
+        format.html do
+          redirect_to @incident_type,
+                      notice: 'Incident type was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @incident_type }
       else
         format.html { render :edit }
@@ -56,19 +63,23 @@ class IncidentTypesController < ApplicationController
   def destroy
     @incident_type.destroy
     respond_to do |format|
-      format.html { redirect_to incident_types_url, notice: 'Incident type was successfully destroyed.' }
+      format.html do
+        redirect_to incident_types_url,
+                    notice: 'Incident type was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_incident_type
-      @incident_type = IncidentType.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def incident_type_params
-      params.require(:incident_type).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_incident_type
+    @incident_type = IncidentType.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def incident_type_params
+    params.require(:incident_type).permit(:name)
+  end
 end

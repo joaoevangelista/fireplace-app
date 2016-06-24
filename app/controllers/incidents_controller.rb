@@ -1,3 +1,4 @@
+# Controller for incident model
 class IncidentsController < ApplicationController
   before_action :set_incident, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
@@ -15,8 +16,7 @@ class IncidentsController < ApplicationController
 
   # GET /incidents/new
   def new
-    @incident = Incident.new({ user_id: current_user.id})
-
+    @incident = Incident.new(user_id: current_user.id)
   end
 
   # GET /incidents/1/edit
@@ -45,7 +45,10 @@ class IncidentsController < ApplicationController
   def update
     respond_to do |format|
       if @incident.update(incident_params)
-        format.html { redirect_to @incident, notice: 'Incident was successfully updated.' }
+        format.html do
+          redirect_to @incident,
+                      notice: 'Incident was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @incident }
       else
         format.html { render :edit }
@@ -59,19 +62,24 @@ class IncidentsController < ApplicationController
   def destroy
     @incident.destroy
     respond_to do |format|
-      format.html { redirect_to incidents_url, notice: 'Incident was successfully destroyed.' }
+      format.html do
+        redirect_to incidents_url,
+                    notice: 'Incident was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_incident
-      @incident = Incident.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def incident_params
-      params.require(:incident).permit(:incident_type_id, :action_taken, :user_id, :description, :open, :latitude, :longitude)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_incident
+    @incident = Incident.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def incident_params
+    params.require(:incident).permit(:incident_type_id, :action_taken,
+                                     :user_id, :description, :open, :latitude, :longitude)
+  end
 end

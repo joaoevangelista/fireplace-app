@@ -1,8 +1,9 @@
+# :nodoc:
 class IncidentType
   include NoBrainer::Document
   include NoBrainer::Document::Timestamps
 
-  field :name, :type => String
+  field :name, type: String
 
   paginates_per 20
 
