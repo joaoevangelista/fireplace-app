@@ -1,6 +1,18 @@
-<h1>Editing Fire</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @fire %> |
-<%= link_to 'Back', fires_path %>
+<div class="container spaced">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="pull-left"><%= link_to icon('chevron-left','Back', class: 'fa-fw'), fires_path %></div>
+      <div class="pull-right"><%= link_to icon('eye', 'Show', class: 'fa-fw'), @fire %> </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">Editing Fire</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

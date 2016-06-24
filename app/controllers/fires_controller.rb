@@ -15,7 +15,7 @@ class FiresController < ApplicationController
 
   # GET /fires/new
   def new
-    @fire = Fire.new
+    @fire = Fire.new({user_id: current_user.id})
   end
 
   # GET /fires/1/edit
@@ -26,7 +26,7 @@ class FiresController < ApplicationController
   # POST /fires.json
   def create
     @fire = Fire.new(fire_params)
-
+    @fire.location = { latitude: params[:latitude], longitude: params[:longitude] }
     respond_to do |format|
       if @fire.save
         format.html { redirect_to @fire, notice: 'Fire was successfully created.' }
@@ -70,6 +70,6 @@ class FiresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fire_params
-      params.require(:fire).permit(:name, :original_area, :description)
+      params.require(:fire).permit(:name, :original_area, :description, :latitude, :longitude)
     end
 end

@@ -1,29 +1,46 @@
-<%= form_for(@fire) do |f| %>
-  <% if @fire.errors.any? %>
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for(@fire) do |f| %>
+    <% if @fire.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@fire.errors.count, "error") %> prohibited this fire from being saved:</h2>
 
       <ul>
-      <% @fire.errors.full_messages.each do |message| %>
+        <% @fire.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <div class="form-group">
+      <%= f.label :name, class: 'control-label' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Give a name to this fire' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :location, class: 'control-label' %>
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <%= text_field_tag :latitude, @fire.location ?
+          @fire.location.latitude : "", class: 'form-control', placeholder: 'Latitude' %>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <%= text_field_tag :longitude, @fire.location ?
+          @fire.location.longitude : "" ,class: 'form-control', placeholder: 'Longitude' %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, class: 'control-label' %>
+      <%= f.text_area :description, class: 'form-control',
+       placeholder: 'Type what you know about the fire, how it started, size, etc',
+       rows: '5' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Save', class: ['btn', 'btn-success'] %>
+      <%= f.hidden_field :user_id %>
+    </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :original_area %><br>
-    <%= f.text_field :original_area %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
