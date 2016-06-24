@@ -4,6 +4,7 @@ services:
   - rethinkdb:latest
 
 before_script:
+  - apt-get install -y nodejs
   - gem install bundler         # Bundler is not installed with the image
   - gem install rubocop         # Install rubocop globally
   - bundle install -j $(nproc)  # Install dependencies
