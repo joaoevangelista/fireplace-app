@@ -3,6 +3,11 @@ image: "ruby:2.3"
 services:
   - rethinkdb:latest
 
+stages:
+  - lint
+  - test
+  - post-test
+
 before_script:
   - apt-get install -y nodejs
   - gem install bundler         # Bundler is not installed with the image
@@ -10,12 +15,14 @@ before_script:
   - bundle install -j $(nproc)  # Install dependencies
 
 rubocop:
+  stage: lint
   script:
   - rubocop
   tags:
   - docker
 
 rspec:
+  stage: test
   script:
   - bundle exec rspec
   tags:
