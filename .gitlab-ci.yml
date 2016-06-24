@@ -22,8 +22,8 @@ rubocop:
   - docker
 
 rspec:
-  env:
-    - RETHINKDB_URI=rethinkdb://rethinkdb:28015/fireplace_test
+  variables:
+    RETHINKDB_URI: 'rethinkdb://rethinkdb:28015/fireplace_test'
   stage: test
   script:
   - bundle exec rspec
