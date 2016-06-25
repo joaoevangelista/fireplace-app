@@ -5,7 +5,9 @@
         <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), severity_levels_path %>
       </div>
       <div class="pull-right">
+        <% if current_user %>
         <%= link_to icon('pencil', 'Edit this level', class: 'fa-fw'), edit_severity_level_path(@severity_level) %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -22,7 +24,7 @@
   <div class="row">
     <div class="col-md-12">
       <% if @severity_level.fires.empty? %>
-        <p class="text-muted lead text-center">No fires reported with this severity yet</p>
+      <p class="text-muted lead text-center">No fires reported with this severity yet</p>
       <% else %>
       <div class="table-responsive">
         <table class="table table-striped">
