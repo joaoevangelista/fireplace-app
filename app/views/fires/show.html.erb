@@ -62,6 +62,13 @@
       </div>
       <div class="row">
         <div class="col-md-12">
+          <p class="text-muted">Severity:</p>
+          <p><%= severity_label @fire.severity_level %></p>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
           <p class="text-muted">Reporter:</p>
           <p>
             <span><%= image_tag gravatar(@fire.user.email, 25), height: 25, class: ['img-circle'] %></span>

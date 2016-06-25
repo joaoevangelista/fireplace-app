@@ -31,6 +31,7 @@
               <th>Location</th>
               <th>Reporter</th>
               <th>Is Extinguished</th>
+              <th>Severity</th>
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -48,6 +49,7 @@
                 <span class="text-danger"><i class="fa fa-times"></i></span>
                 <% end %>
               </td>
+              <td><%= severity_label fire.severity_level %></td>
               <td><%= link_to icon('eye'), fire, class: 'text-info' %></td>
               <% if current_user %>
               <td><%= link_to icon('pencil'), edit_fire_path(fire), class: 'text-muted' %></td>
