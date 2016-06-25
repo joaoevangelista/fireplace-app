@@ -2,7 +2,7 @@
 # :nodoc:
 class SeverityLevelsController < ApplicationController
   before_action :set_severity_level, only: [:show, :edit, :update, :destroy]
-  before_action authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /severity_levels
   # GET /severity_levels.json
