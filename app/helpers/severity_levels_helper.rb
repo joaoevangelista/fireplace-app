@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 # :nodoc:
 module SeverityLevelsHelper
-  
+
+  # Render a span label for the given severity
+  def severity_label(severity)
+    text_color = text_color_for_bg(severity.color)
+    "<span class='label' style='background: #{severity.color} ; color: #{text_color}'>#{severity.name}</span>"
+  end
+
   # Find a sutiable color based on the background color
   def text_color_for_bg(bg_color)
       if bg_color.length == 4
