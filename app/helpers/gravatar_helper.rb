@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Gravatar images helper
 module GravatarHelper
   def gravatar(email, size = 200)

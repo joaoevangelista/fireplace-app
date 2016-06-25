@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Controller for fire models
 class FiresController < ApplicationController
   before_action :set_fire, only: [:show, :edit, :update, :destroy]

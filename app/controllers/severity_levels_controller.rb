@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+# :nodoc:
 class SeverityLevelsController < ApplicationController
   before_action :set_severity_level, only: [:show, :edit, :update, :destroy]
 
@@ -28,7 +30,10 @@ class SeverityLevelsController < ApplicationController
 
     respond_to do |format|
       if @severity_level.save
-        format.html { redirect_to @severity_level, notice: 'Severity level was successfully created.' }
+        format.html do
+          redirect_to @severity_level,
+                      notice: 'Severity level was successfully created.'
+        end
         format.json { render :show, status: :created, location: @severity_level }
       else
         format.html { render :new }
@@ -42,7 +47,10 @@ class SeverityLevelsController < ApplicationController
   def update
     respond_to do |format|
       if @severity_level.update(severity_level_params)
-        format.html { redirect_to @severity_level, notice: 'Severity level was successfully updated.' }
+        format.html do
+          redirect_to @severity_level,
+                      notice: 'Severity level was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @severity_level }
       else
         format.html { render :edit }
@@ -56,19 +64,23 @@ class SeverityLevelsController < ApplicationController
   def destroy
     @severity_level.destroy
     respond_to do |format|
-      format.html { redirect_to severity_levels_url, notice: 'Severity level was successfully destroyed.' }
+      format.html do
+        redirect_to severity_levels_url,
+                    notice: 'Severity level was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_severity_level
-      @severity_level = SeverityLevel.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def severity_level_params
-      params.require(:severity_level).permit(:name, :color)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_severity_level
+    @severity_level = SeverityLevel.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def severity_level_params
+    params.require(:severity_level).permit(:name, :color)
+  end
 end

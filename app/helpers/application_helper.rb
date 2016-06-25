@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Global Application Helper
 module ApplicationHelper
   def date_time(date)

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Controller for incident types
 class IncidentTypesController < ApplicationController
   before_action :set_incident_type, only: [:show, :edit, :update, :destroy]

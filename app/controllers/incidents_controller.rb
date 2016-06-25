@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Controller for incident model
 class IncidentsController < ApplicationController
   before_action :set_incident, only: [:show, :edit, :update, :destroy]

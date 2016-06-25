@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # :nodoc:
 class Incident
   include NoBrainer::Document
