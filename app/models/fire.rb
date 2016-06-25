@@ -12,4 +12,5 @@ class Fire
   paginates_per 20
 
   belongs_to :user
+  belongs_to :severity_level
 end

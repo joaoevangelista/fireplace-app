@@ -6,4 +6,6 @@ class SeverityLevel
 
   field :name, type: String
   field :color, type: String
+
+  has_many :fires
 end
