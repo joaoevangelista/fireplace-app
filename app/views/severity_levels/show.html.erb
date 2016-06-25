@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @severity_level.name %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @severity_level.color %>
+</p>
+
+<%= link_to 'Edit', edit_severity_level_path(@severity_level) %> |
+<%= link_to 'Back', severity_levels_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :severity_levels
   resources :incident_types
   resources :fires
   resources :incidents
