@@ -1,6 +1,9 @@
 # User seed
 
-User.create!(email: 'john.doe@fireplace.com', password:'123456', name: 'John Doe')
+if !User.where(email: 'john.doe@fireplace.com').first
+  User.create!(email: 'john.doe@fireplace.com', password:'123456', name: 'John Doe')
+end
+
 
 # Incident Types
 
