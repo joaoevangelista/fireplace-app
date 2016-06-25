@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 # :nodoc:
 module SeverityLevelsHelper
-
   # Render a span label for the given severity
   def severity_label(severity)
     text_color = text_color_for_bg(severity.color)
@@ -23,5 +22,4 @@ module SeverityLevelsHelper
       '#FFFFFF'
     end
   end
-
 end
