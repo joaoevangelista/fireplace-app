@@ -1,25 +1,32 @@
-<%= form_for(@severity_level) do |f| %>
-  <% if @severity_level.errors.any? %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 spaced">
+    <%= form_for(@severity_level) do |f| %>
+    <% if @severity_level.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@severity_level.errors.count, "error") %> prohibited this severity_level from being saved:</h2>
 
       <ul>
-      <% @severity_level.errors.full_messages.each do |message| %>
+        <% @severity_level.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-8">
+          <%= f.label :name, class: 'control-label' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="col-md-4">
+          <%= f.label :color, class: 'control-label' %>
+          <%= f.color_field :color, class: 'form-control' %></div>
+        </div>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Save', class: ['btn', 'btn-success'] %>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

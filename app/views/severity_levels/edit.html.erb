@@ -1,6 +1,30 @@
-<h1>Editing Severity Level</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @severity_level %> |
-<%= link_to 'Back', severity_levels_path %>
+<div class="container">
+  <spaced>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pull-left">
+          <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), severity_levels_path %>
+        </div>
+        <div class="pull-right">
+            <%= link_to icon('eye', 'Show', class: 'fa-fw'), @severity_level %> 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">Editing Severity Level</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'layouts/notice', notice: notice %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </spaced>
+</div>
