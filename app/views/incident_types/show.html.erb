@@ -41,7 +41,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @incident_type.incidents.each do |incident| %>
+            <% @incidents.each do |incident| %>
             <tr>
               <td><%= date_time incident.created_at %></td>
               <td><%= incident.action_taken %></td>
@@ -67,4 +67,9 @@
     </div>
   </div>
   <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= paginate @incidents %>
+    </div>
+  </div>
 </div>

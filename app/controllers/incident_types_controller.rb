@@ -12,6 +12,7 @@ class IncidentTypesController < ApplicationController
   # GET /incident_types/1
   # GET /incident_types/1.json
   def show
+    @incidents = Kaminari.paginate_array(@incident_type.incidents).page(params[:page]).per(20)
   end
 
   # GET /incident_types/new
