@@ -6,7 +6,7 @@ class SeverityLevelsController < ApplicationController
   # GET /severity_levels
   # GET /severity_levels.json
   def index
-    @severity_levels = SeverityLevel.all
+    @severity_levels = SeverityLevel.order(:created_at).page params[:page]
   end
 
   # GET /severity_levels/1
