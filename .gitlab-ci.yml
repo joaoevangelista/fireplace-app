@@ -23,7 +23,7 @@ rubocop:
 
 rspec:
   variables:
-    RETHINKDB_URI: 'rethinkdb://rethinkdb:28015/fireplace_test'
+    RETHINKDB_URL: 'rethinkdb://rethinkdb:28015/fireplace_test'
   stage: test
   script:
   - bundle exec rspec
