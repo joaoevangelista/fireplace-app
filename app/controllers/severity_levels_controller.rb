@@ -12,6 +12,7 @@ class SeverityLevelsController < ApplicationController
   # GET /severity_levels/1
   # GET /severity_levels/1.json
   def show
+    @fires = Kaminari.paginate_array(@severity_level.fires).page(params[:page]).per(20)
   end
 
   # GET /severity_levels/new

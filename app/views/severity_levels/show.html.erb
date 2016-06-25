@@ -1,14 +1,71 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @severity_level.name %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @severity_level.color %>
-</p>
-
-<%= link_to 'Edit', edit_severity_level_path(@severity_level) %> |
-<%= link_to 'Back', severity_levels_path %>
+<div class="container spaced">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-left">
+        <%= link_to 'Back', severity_levels_path %>
+      </div>
+      <div class="pull-right">
+        <%= link_to icon('pencil', 'Edit this level', class: 'fa-fw'), edit_severity_level_path(@severity_level) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center"><%= @severity_level.name %>&nbsp; severity fires</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'layouts/notice', notice: notice %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <% if @severity_level.fires.empty? %>
+        <p class="text-muted lead text-center">No fires reported with this severity yet</p>
+      <% else %>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Reporter</th>
+              <th>Is Extinguished</th>
+              <th>Severity</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @fires.each do |fire| %>
+            <tr>
+              <td><%= fire.name %></td>
+              <td><%= fire.location.latitude.to_s.concat(', ').concat(fire.location.longitude.to_s) %></td>
+              <td><%= fire.user.name %></td>
+              <td>
+                <% if fire.is_extinguished %>
+                <span class="text-success"><i class="fa fa-check"></i></span>
+                <% else %>
+                <span class="text-danger"><i class="fa fa-times"></i></span>
+                <% end %>
+              </td>
+              <td><%= severity_label fire.severity_level %></td>
+              <td><%= link_to icon('eye'), fire, class: 'text-info' %></td>
+              <% if current_user %>
+              <td><%= link_to icon('pencil'), edit_fire_path(fire), class: 'text-muted' %></td>
+              <td><%= link_to icon('times'), fire, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger' %></td>
+              <% end %>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= paginate @fires %>
+    </div>
+  </div>
+</div>
