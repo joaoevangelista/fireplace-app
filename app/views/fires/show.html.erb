@@ -51,6 +51,17 @@
       </div>
       <div class="row">
         <div class="col-md-12">
+          <p class="text-muted">Status:</p>
+          <% if @fire.is_extinguished %>
+            <span class="text-success"><i class="fa fa-check fa-fw"></i>Fire is extinguished</span>
+          <% else %>
+            <span class="text-danger"><i class="fa fa-times fa-fw"></i>Still burning</span>
+          <% end %>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
           <p class="text-muted">Reporter:</p>
           <p>
             <span><%= image_tag gravatar(@fire.user.email, 25), height: 25, class: ['img-circle'] %></span>
