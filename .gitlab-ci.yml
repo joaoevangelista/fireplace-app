@@ -10,6 +10,7 @@ stages:
 
 before_script:
   - sh ./scripts/install-node.sh
+  - sh ./scripts/gen-keys.sh    # generate secrets on each built and set on env
   - gem install bundler         # Bundler is not installed with the image
   - gem install rubocop         # Install rubocop globally
   - bundle install -j $(nproc)  # Install dependencies
