@@ -37,12 +37,24 @@
       placeholder: 'Type what you know about the fire, how it started, size, etc',
       rows: '5' %>
     </div>
-    <div class="form-group">
-      <%= f.label :is_extinguished, class: 'control-label' %>
-      <%= f.select :is_extinguished,
-      options_for_select([['Still Burning', false], ['Fire is extinguished', true]],
-      @fire.is_extinguished), {}, class: 'form-control' %>
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <%= f.label :is_extinguished, class: 'control-label' %>
+          <%= f.select :is_extinguished,
+          options_for_select([['Still Burning', false], ['Fire is extinguished', true]],
+          @fire.is_extinguished), {}, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="form-group">
+          <%= f.label :severity_level_id, class: 'control-label' %>
+          <%= f.collection_select :severity_level_id, SeverityLevel.all,
+          :id, :name, {}, class: 'form-control' %>
+        </div>
+      </div>
     </div>
+
     <div class="form-group">
       <%= f.submit 'Save', class: ['btn', 'btn-success'] %>
       <%= f.hidden_field :user_id %>
