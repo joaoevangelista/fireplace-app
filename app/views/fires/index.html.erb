@@ -20,6 +20,9 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
+      <% if @fires.empty? %>
+      <p class="lead text-muted text-center">No fires reported yet</p>
+      <% else %>
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
@@ -27,6 +30,7 @@
               <th>Name</th>
               <th>Location</th>
               <th>Reporter</th>
+              <th>Is Extinguished</th>
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -37,6 +41,13 @@
               <td><%= fire.name %></td>
               <td><%= fire.location.latitude.to_s.concat(', ').concat(fire.location.longitude.to_s) %></td>
               <td><%= fire.user.name %></td>
+              <td>
+                <% if fire.is_extinguished %>
+                <span class="text-success"><i class="fa fa-check"></i></span>
+                <% else %>
+                <span class="text-danger"><i class="fa fa-times"></i></span>
+                <% end %>
+              </td>
               <td><%= link_to icon('eye'), fire, class: 'text-info' %></td>
               <% if current_user %>
               <td><%= link_to icon('pencil'), edit_fire_path(fire), class: 'text-muted' %></td>
@@ -47,6 +58,7 @@
           </tbody>
         </table>
       </div>
+      <% end %>
     </div>
   </div>
   <div class="row">
