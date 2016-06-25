@@ -34,12 +34,14 @@
     <div class="form-group">
       <%= f.label :description, class: 'control-label' %>
       <%= f.text_area :description, class: 'form-control',
-       placeholder: 'Type what you know about the fire, how it started, size, etc',
-       rows: '5' %>
+      placeholder: 'Type what you know about the fire, how it started, size, etc',
+      rows: '5' %>
     </div>
     <div class="form-group">
       <%= f.label :is_extinguished, class: 'control-label' %>
-      <%= f.select :is_extinguished, options_for_select([[0,'Still Burning'], [1, 'Fire is extinguished']]), class: 'form-control' %> 
+      <%= f.select :is_extinguished,
+      options_for_select([['Still Burning', false], ['Fire is extinguished', true]],
+      @fire.is_extinguished), {}, class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.submit 'Save', class: ['btn', 'btn-success'] %>
