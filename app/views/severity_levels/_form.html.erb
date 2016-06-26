@@ -3,27 +3,35 @@
     <%= form_for(@severity_level) do |f| %>
     <% if @severity_level.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@severity_level.errors.count, "error") %> prohibited this severity_level from being saved:</h2>
-
-      <ul>
-        <% @severity_level.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
+      <p class="text-center text-danger"><%= pluralize(@severity_level.errors.count, "error") %> prohibited this level from being saved</p>
     </div>
     <% end %>
 
-    <div class="form-group">
       <div class="row">
         <div class="col-md-8">
-          <%= f.label :name, class: 'control-label' %>
-          <%= f.text_field :name, class: 'form-control' %>
+          <div class="form-group <%= @severity_level.errors[:name].empty? ? '' : 'has-error' %>">
+            <%= f.label :name, class: 'control-label' %>
+            <%= f.text_field :name, class: 'form-control' %>
+            <% if not @severity_level.errors[:name].empty? %>
+              <% @severity_level.errors[:name].each do |message| %>
+              <span class="help-block"><%= message.capitalize %></span>
+              <% end %>
+            <% end %>
+          </div>
         </div>
         <div class="col-md-4">
-          <%= f.label :color, class: 'control-label' %>
-          <%= f.color_field :color, class: 'form-control' %></div>
+          <div class="form-group <%= @severity_level.errors[:color].empty? ? '' : 'has-error' %>">
+            <%= f.label :color, class: 'control-label' %>
+            <%= f.color_field :color, class: 'form-control' %>
+            <% if not @severity_level.errors[:color].empty? %>
+              <% @severity_level.errors[:color].each do |message| %>
+              <span class="help-block"><%= message.capitalize %></span>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
+        </div>
+
       <div class="actions">
         <%= f.submit 'Save', class: ['btn', 'btn-success'] %>
       </div>
