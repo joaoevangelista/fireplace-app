@@ -3,18 +3,18 @@
     <%= form_for(@incident_type) do |f| %>
     <% if @incident_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@incident_type.errors.count, "error") %> prohibited this incident_type from being saved:</h2>
-      <ul>
-        <% @incident_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
+      <p class="text-danger text-center"><%= pluralize(@incident_type.errors.count, "error") %> prohibited this type from being saved</p>
     </div>
     <% end %>
 
-    <div class="form-group">
+    <div class="form-group <%= @incident_type.errors[:name].empty? ? '' : 'has-error' %>">
       <%= f.label :name %><br>
       <%= f.text_field :name, class: 'form-control' %>
+      <% if not @incident_type.errors[:name].empty? %>
+        <% @incident_type.errors[:name].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+      <% end %>
     </div>
     <div class="form-group">
       <%= f.submit 'Save', class: ['btn', 'btn-success'] %>
