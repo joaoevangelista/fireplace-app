@@ -1,0 +1,7 @@
+# General and meta data configuration of application
+
+development:
+  park_name: 'Wyoming National Park'
+
+production:
+  park_name: 'Wyoming National Park' # Change this to the name of your park or region
