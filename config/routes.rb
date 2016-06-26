@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :incident_types
   resources :fires
   resources :incidents
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 end
