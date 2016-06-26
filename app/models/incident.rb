@@ -4,6 +4,9 @@ class Incident
   include NoBrainer::Document
   include NoBrainer::Document::Timestamps
 
+  validates :action_taken, :location, :description, :incident_type, :user,
+            presence: true
+
   field :action_taken, type: String
   field :location, type: Geo::Point
   field :description, type: Text

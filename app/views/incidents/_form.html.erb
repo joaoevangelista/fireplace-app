@@ -3,25 +3,29 @@
     <%= form_for(@incident) do |f| %>
     <% if @incident.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
-
-      <ul>
-        <% @incident.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
+      <p class="text-center text-danger"><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved</p>
     </div>
     <% end %>
 
-    <div class="form-group">
+    <div class="form-group <%= @incident.errors[:incident_type].empty? ? '' : 'has-error' %>">
       <%= f.label :incident_type_id, class: 'control-label' %>
       <%=f.collection_select :incident_type_id, IncidentType.all, :id, :name, {}, {class: "form-control"} %>
+      <% if not @incident.errors[:incident_type].empty? %>
+        <% @incident.errors[:incident_type].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+      <% end %>
     </div>
-    <div class="form-group">
+    <div class="form-group <%= @incident.errors[:action_taken].empty? ? '' : 'has-error' %>">
       <%= f.label :action_taken, class: 'control-label' %>
       <%= f.text_field :action_taken, class: 'form-control' %>
+      <% if not @incident.errors[:action_taken].empty? %>
+        <% @incident.errors[:action_taken].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+      <% end %>
     </div>
-    <div class="form-group">
+    <div class="form-group <%= @incident.errors[:location].empty? ? '' : 'has-error' %>">
       <%= f.label :location, class: 'control-label' %>
       <div class="row">
         <div class="col-sm-12 col-md-6">
@@ -31,11 +35,20 @@
           <%= text_field_tag :longitude, @incident.location ? @incident.location.longitude : "" ,class: 'form-control', placeholder: 'Longitude' %>
         </div>
       </div>
-
+      <% if not @incident.errors[:location].empty? %>
+        <% @incident.errors[:location].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+      <% end %>
     </div>
-    <div class="form-group">
+    <div class="form-group <%= @incident.errors[:description].empty? ? '' : 'has-error' %>">
       <%= f.label :description, class: 'control-label' %>
       <%= f.text_area :description, class: 'form-control' %>
+      <% if not @incident.errors[:description].empty? %>
+        <% @incident.errors[:description].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+      <% end %>
     </div>
     <div class="checkbox">
      <label>
