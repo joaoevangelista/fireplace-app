@@ -16,10 +16,18 @@ module SeverityLevelsHelper
       r, g, b = bg_color[1, 7].scan(/.{2}/).map(&:hex)
     end
 
-    if (r + g + b) > 500
-      '#333333'
+    if r && g && b
+      decide_color r, g, b
     else
       '#FFFFFF'
     end
+  end
+end
+
+def decide_color(r, g, b)
+  if (r + g + b) > 500
+    '#333333'
+  else
+    '#FFFFFF'
   end
 end

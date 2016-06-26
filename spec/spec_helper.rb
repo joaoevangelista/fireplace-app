@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'factory_girl_rails'
 require 'support/factory_girl'
 RSpec.configure do |config|
@@ -13,5 +14,4 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-
 end
