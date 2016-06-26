@@ -4,6 +4,9 @@ class Fire
   include NoBrainer::Document
   include NoBrainer::Document::Timestamps
 
+  validates :name, :location, :description, :is_extinguished,
+            :user, :severity_level, presence: true
+
   field :name, type: String
   field :location, type: Geo::Point
   field :description, type: String
