@@ -3,13 +3,7 @@
     <%= form_for(@fire) do |f| %>
     <% if @fire.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@fire.errors.count, "error") %> prohibited this fire from being saved:</h2>
-
-      <ul>
-        <% @fire.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
+      <p class="text-center text-danger"><%= pluralize(@fire.errors.count, "error") %> prohibited this fire from being saved</p>
     </div>
     <% end %>
 
