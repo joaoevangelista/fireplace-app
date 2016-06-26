@@ -5,6 +5,7 @@ class SeverityLevel
   include NoBrainer::Document::Timestamps
 
   validates :name, :color, presence: true
+  validates :color, color: true
 
   field :name, type: String
   field :color, type: String
