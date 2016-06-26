@@ -13,12 +13,17 @@
     </div>
     <% end %>
 
-    <div class="form-group">
+    <div class="form-group <%= @fire.errors[:name].empty? ? '' : 'has-error' %>">
       <%= f.label :name, class: 'control-label' %>
       <%= f.text_field :name, class: 'form-control', placeholder: 'Give a name to this fire' %>
+      <% if not @fire.errors[:name].empty? %>
+        <% @fire.errors[:name].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+      <% end %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group <%= @fire.errors[:location].empty? ? '' : 'has-error' %>">
       <%= f.label :location, class: 'control-label' %>
       <div class="row">
         <div class="col-sm-12 col-md-6">
@@ -30,27 +35,47 @@
           @fire.location.longitude : "" ,class: 'form-control', placeholder: 'Longitude' %>
         </div>
       </div>
+      <% if not @fire.errors[:location].empty? %>
+        <% @fire.errors[:location].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+      <% end %>
     </div>
-    <div class="form-group">
+    <div class="form-group <%= @fire.errors[:description].empty? ? '' : 'has-error' %>">
       <%= f.label :description, class: 'control-label' %>
       <%= f.text_area :description, class: 'form-control',
       placeholder: 'Type what you know about the fire, how it started, size, etc',
       rows: '5' %>
+      <% if not @fire.errors[:description].empty? %>
+        <% @fire.errors[:description].each do |message| %>
+        <span class="help-block"><%= message.capitalize %></span>
+        <% end %>
+      <% end %>
     </div>
     <div class="row">
       <div class="col-md-6 col-sm-12">
-        <div class="form-group">
+        <div class="form-group <%= @fire.errors[:is_extinguished].empty? ? '': 'has-error' %>">
           <%= f.label :is_extinguished, class: 'control-label' %>
           <%= f.select :is_extinguished,
           options_for_select([['Still Burning', false], ['Fire is extinguished', true]],
           @fire.is_extinguished), {}, class: 'form-control' %>
+          <% if not @fire.errors[:is_extinguished].empty? %>
+            <% @fire.errors[:is_extinguished].each do |message| %>
+            <span class="help-block"><%= message.capitalize %></span>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="col-md-6 col-sm-12">
-        <div class="form-group">
+        <div class="form-group <%= @fire.errors[:severity_level_id].empty? ? '': 'has-error' %>">
           <%= f.label :severity_level_id, class: 'control-label' %>
           <%= f.collection_select :severity_level_id, SeverityLevel.all,
           :id, :name, {}, class: 'form-control' %>
+          <% if not @fire.errors[:severity_level_id].empty? %>
+            <% @fire.errors[:severity_level_id].each do |message| %>
+            <span class="help-block"><%= message.capitalize %></span>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
