@@ -13,6 +13,8 @@ class User
 
   # Other fields
   field :name,               type: String
+  # Place where the user is located (Station)
+  field :station, type: String
   ## Recoverable
   field :reset_password_token,   type: String
   field :reset_password_sent_at, type: Time
