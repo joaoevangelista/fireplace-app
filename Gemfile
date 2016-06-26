@@ -58,6 +58,7 @@ group :development, :test do
   # Use RuboCop as Linter
   gem 'rubocop', '~> 0.40.0', require: false
   gem 'rubocop-rspec', '~> 1.5.0', require: false
+  gem 'factory_girl_rails'
 end
 
 group :development do

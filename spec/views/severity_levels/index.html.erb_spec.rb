@@ -2,7 +2,11 @@
 require 'rails_helper'
 
 RSpec.describe 'severity_levels/index', type: :view do
+
+  login_user
   before(:each) do
+
+
     assign(:severity_levels, [
              SeverityLevel.create!(
                name: 'Name',
