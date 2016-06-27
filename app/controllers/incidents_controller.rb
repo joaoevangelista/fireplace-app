@@ -3,6 +3,7 @@
 class IncidentsController < ApplicationController
   before_action :set_incident, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :master?, only: [:destroy]
 
   # GET /incidents
   # GET /incidents.json
@@ -82,5 +83,10 @@ class IncidentsController < ApplicationController
   def incident_params
     params.require(:incident).permit(:incident_type_id, :action_taken,
                                      :user_id, :description, :open, :latitude, :longitude)
+  end
+
+  def master?
+    return false unless current_user
+    current_user.role.name.downcase.equal? 'master'
   end
 end
