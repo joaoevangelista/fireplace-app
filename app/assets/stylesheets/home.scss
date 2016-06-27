@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 100px;
 }
 
 .footer {
@@ -29,6 +29,10 @@ body > footer .container {
 
 code {
   font-size: 80%;
+}
+
+.bottom-spaced {
+  margin-bottom: 9rem;
 }
 
 .gitlab-color {
