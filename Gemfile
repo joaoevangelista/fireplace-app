@@ -59,6 +59,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.40.0', require: false
   gem 'rubocop-rspec', '~> 1.5.0', require: false
   gem 'factory_girl_rails'
+  gem 'kaminari-rspec'
 end
 
 group :development do
