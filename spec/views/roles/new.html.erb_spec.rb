@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 # :nodoc:
 require 'rails_helper'
 
