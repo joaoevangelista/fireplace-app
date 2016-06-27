@@ -8,12 +8,12 @@ class RegistrationsController < Devise::RegistrationsController
 
   def sign_up_params
     params.require(:user).permit(:email, :name, :password,
-                                 :password_confirmation, :station)
+                                 :password_confirmation, :station, :role_id)
   end
 
   def account_update_params
     params.require(:user).permit(:email, :name, :password,
-                                 :password_confirmation, :station)
+                                 :password_confirmation, :station, :role_id)
   end
 
   def master?

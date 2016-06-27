@@ -4,4 +4,6 @@ class Role
   include NoBrainer::Document::Timestamps
 
   field :name, type: String
+
+  has_many :users
 end
