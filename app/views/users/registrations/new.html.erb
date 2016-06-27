@@ -46,6 +46,14 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
+              <label for="user[role_id]" class="control-label"i >User Role:</label>
+              <%= f.collection_select :role_id, Role.all, :id, :name, {}, {class: "form-control"}  %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
               <%= f.label :password, class: 'control-label' %>
               <% if @minimum_password_length %>
               <em class="text-info">(<%= @minimum_password_length %> characters minimum)</em>
