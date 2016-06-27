@@ -1,0 +1,56 @@
+<div class="container spaced">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-left">
+        <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), roles_path %>
+      </div>
+      <div class="pull-right">
+        <%= link_to icon('pencil', 'Edit role', class: 'fa-fw'), edit_role_path(@role) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">
+        User with role <%= @role.name.capitalize %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'layouts/notice', notice: notice %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+     <% if @role.users.empty? %>
+        <p class="text-center lead">
+          No users assigned with this role.
+        </p>
+     <% else %>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Station</th>
+              <th colspan="1"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @role.users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.station %></td>
+              <td><%= link_to icon('pencil'), edit_user_registration_path(user), class: 'text-muted' %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+     <% end %>
+    </div>
+  </div>
+</div>

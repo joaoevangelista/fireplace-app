@@ -3,6 +3,7 @@
 class FiresController < ApplicationController
   before_action :set_fire, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :master?, only: [:destroy]
 
   # GET /fires
   # GET /fires.json
@@ -75,5 +76,10 @@ class FiresController < ApplicationController
   def fire_params
     params.require(:fire).permit(:name, :user_id, :severity_level_id, :description, :latitude,
                                  :longitude, :is_extinguished)
+  end
+
+  def master?
+    return false unless current_user
+    current_user.role.name.downcase.equal? 'master'
   end
 end

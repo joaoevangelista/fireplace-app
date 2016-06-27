@@ -1,7 +1,15 @@
+# Role Seed
+
+master = Role.create!(name: 'Master')
+Role.create!(name: 'Ranger')
+Role.create!(name: 'Watcher')
+Role.create!(name: 'Adventurer')
+
 # User seed
 
 if !User.where(email: 'john.doe@fireplace.com').first
-  User.create!(email: 'john.doe@fireplace.com', password:'123456', name: 'John Doe')
+  User.create!(email: 'john.doe@fireplace.com', password:'123456', name: 'John Doe',
+   station: 'Northwatch Outputs', role_id: master.id)
 end
 
 

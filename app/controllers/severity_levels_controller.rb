@@ -3,6 +3,7 @@
 class SeverityLevelsController < ApplicationController
   before_action :set_severity_level, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :master?, only: [:destroy]
 
   # GET /severity_levels
   # GET /severity_levels.json
@@ -84,5 +85,10 @@ class SeverityLevelsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def severity_level_params
     params.require(:severity_level).permit(:name, :color)
+  end
+
+  def master?
+    return false unless current_user
+    current_user.role.name.downcase.equal? 'master'
   end
 end

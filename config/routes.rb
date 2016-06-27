@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
+  resources :roles
   get '/' => 'home#index', as: :root_path
 
   resources :severity_levels

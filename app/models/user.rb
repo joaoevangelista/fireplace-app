@@ -2,6 +2,9 @@
 # :nodoc:
 class User
   include NoBrainer::Document
+
+  validates :name, presence: true
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,6 +18,7 @@ class User
   field :name,               type: String
   # Place where the user is located (Station)
   field :station, type: String
+
   ## Recoverable
   field :reset_password_token,   type: String
   field :reset_password_sent_at, type: Time
@@ -43,4 +47,5 @@ class User
 
   has_many :incidents
   has_many :fires
+  belongs_to :role
 end
