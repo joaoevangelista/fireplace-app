@@ -1,0 +1,18 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+      - '80:3000'
+    environment:
+      - 'RAILS_ENV=production'
+    links:
+      - rethinkdb
+    depends_on:
+      - rethinkdb
+  rethinkdb:
+    image: 'rethinkdb:latest'
+    ports:
+      - '8080:8080' # web
+      - '29015:29015' # intracluster
+      - '28015:28015' # driver
