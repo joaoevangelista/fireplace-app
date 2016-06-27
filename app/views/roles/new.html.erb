@@ -1,5 +1,20 @@
-<h1>New Role</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', roles_path %>
+<div class="container spaced">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="pull-left">
+        <%= link_to icon('chevron-left', 'Back', class: 'fa-fw'), roles_path %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= render 'layouts/notice', notice: notice %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">Create Role</h1>
+    </div>
+  </div>
+  <%= render 'form' %>
+</div>
