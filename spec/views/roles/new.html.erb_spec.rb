@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# :nodoc:
 require 'rails_helper'
 
 RSpec.describe 'roles/new', type: :view do
