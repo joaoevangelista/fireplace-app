@@ -1,4 +1,6 @@
+# frozen_string_literal: true
 class RolesController < ApplicationController
+  before_action :master?, only: [:show, :edit, :update, :destroy, :index, :new, :create]
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
   # GET /roles
@@ -62,13 +64,19 @@ class RolesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_role
-      @role = Role.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def role_params
-      params.require(:role).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_role
+    @role = Role.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def role_params
+    params.require(:role).permit(:name)
+  end
+
+  def master?
+    return false unless current_user
+    current_user.role.name.downcase.equal? 'master'
+  end
 end
