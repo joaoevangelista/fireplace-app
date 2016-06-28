@@ -1,1 +1,7 @@
 site_name: Fireplace Docs
+theme: readthedocs
+pages:
+- Home: index.md
+- About: about.md
+- Usage: usage.md
+- Development: development.md
