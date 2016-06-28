@@ -120,4 +120,9 @@ To report a fire head to the Report Fire option under Fires menu, there you will
 
 You can edit reports like any another resource, just click on the pencil icon on list view and you will be sent to edit form, from there you can save and/or see the full report.
 
+!!! note
+    To remove a fire you will need a **Master** account.
+
 ## Severity Level
+
+Severity types categorizes the fires, according to the damage it caused or have potential to cause.
