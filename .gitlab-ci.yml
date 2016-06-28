@@ -37,6 +37,7 @@ pages:
   script:
     - sh ./scripts/install-mkdocs.sh
     - pip install mkdocs-material
+    - mkdocs build
   artifacts:
     paths:
       - site
