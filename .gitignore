@@ -40,3 +40,6 @@ config/secrets.yml
 
 # Ignore RethinkDB folder
 rethinkdb_data/*
+
+# Ignore site folder
+site/*
