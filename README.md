@@ -5,8 +5,7 @@
 # Fireplace
 A [Firewatch](http://www.firewatchgame.com) inspired index application for fires and  incidents
 
-Fireplace aims to help watchers, rangers and anyone to see incidents ocurred on Parks,
-and report indicidents and fires.
+Fireplace aims to help watchers, rangers and anyone to see incidents occurred on park and report news.
 
 [![build status](https://gitlab.com/joaoevangelista/fireplace/badges/master/build.svg)](https://gitlab.com/joaoevangelista/fireplace/commits/master)
 
@@ -34,9 +33,14 @@ Then open your browser on [localhost:3000](localhost:3000)
 [WIP] Testing
 ----
 
-To keep the code beatiful we use RuboCop as static code analyzer, to run it you need to install via bundle or by running `gem install rubocop`, basic usages can be found on the [documentation](http://rubocop.readthedocs.io/en/latest/basic_usage/).
+To keep the code beautiful we use RuboCop as static code analyzer, to run it you need to install via bundle or by running `gem install rubocop`, basic usages can be found on the [documentation](http://rubocop.readthedocs.io/en/latest/basic_usage/).
 
 RSpec is powered by a Guard, to run it and all tests you use the following commands: `bundle exec guard` and it will start to watch your specs folder
+
+Documentation
+----
+
+Check out Mkdocs [getting started](http://www.mkdocs.org/#getting-started)
 
 
 Acknowledgement
