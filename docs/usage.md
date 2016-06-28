@@ -64,30 +64,36 @@ occurred and prevent them to appear there again.
 
 ### Managing
 
-On the list view of all incidents, you can delete them and open the edition form with a single click. Both procedures should feel natural to you.
+On the list view of all incidents, you can delete them and open the edition form
+with a single click. Both procedures should feel natural to you.
 
 !!! note
     You need to be Master to delete an incident and signed in to edit
 
 ## Incident Types
 
-Each incident needs a type to be classified, here you can manage them, they consist with only a name, that tells what was about the incident, such as: *Fireworks*, *Lost Person*, *Fireplace*
+Each incident needs a type to be classified, here you can manage them, they
+consist with only a name, that tells what was about the incident, such as:
+*Fireworks*, *Lost Person*, *Fireplace*
 
 ### Creating Types
 
-  To create a new type you need to head to the Incident Types option on Incident menu located at navigation bar. From there you can see a list of
+  To create a new type you need to head to the Incident Types option on Incident
+  menu located at navigation bar. From there you can see a list of
   types already created and a link that will lead you to the form.
 
   Fill the form with the name you want to describe the incident and save it.
 
-  We provide a handful of types from the seeds, that will can use or remove them if you are using another locale for example.
+  We provide a handful of types from the seeds, that will can use or remove them
+  if you are using another locale for example.
 
 !!! note
     You need to be signed in to create new types
 
 ### Managing
 
-  As the other resources we can edit types by heading to the list view and clicking on the edit pencil button, this will lead you to edition form.
+  As the other resources we can edit types by heading to the list view and
+  clicking on the edit pencil button, this will lead you to edition form.
 
   To remove a type, you need to be a **Master**, just click on the times link.
 
@@ -103,12 +109,15 @@ Each incident needs a type to be classified, here you can manage them, they cons
 
 ## Fire
 
-When things gone wild and bad, we need to keep track of them, there is the Fire resource. It is intended to be used when watchers, mostly, spot fires starting or ongoing, they can report to the system to keep the record of them
+When things gone wild and bad, we need to keep track of them, there is the Fire
+resource. It is intended to be used when watchers, mostly, spot fires starting
+or ongoing, they can report to the system to keep the record of them
 with information such as: the severity, when it occurred and where.
 
 ### Reporting fires
 
-To report a fire head to the Report Fire option under Fires menu, there you will be lead to a form where you can fill with all the details you know about the fire.
+To report a fire head to the Report Fire option under Fires menu, there you will
+be lead to a form where you can fill with all the details you know about the fire.
 
 !!! danger
     Report first to the competent authorities first and alert the Fireman first.
@@ -118,11 +127,42 @@ To report a fire head to the Report Fire option under Fires menu, there you will
 
 ### Managing
 
-You can edit reports like any another resource, just click on the pencil icon on list view and you will be sent to edit form, from there you can save and/or see the full report.
+You can edit reports like any another resource, just click on the pencil icon on
+list view and you will be sent to edit form, from there you can save and/or see
+the full report.
 
 !!! note
     To remove a fire you will need a **Master** account.
 
 ## Severity Level
 
-Severity types categorizes the fires, according to the damage it caused or have potential to cause.
+Severity types categorizes the fires, according to the damage it caused or have
+potential to cause.
+
+They have a name and a color to easily identify them among the others, assign
+them on the report of a fire and not inside level page.
+
+### Creating a Level
+
+To create a new level you need to head to the Severity Level option on Fires
+menu located at navigation bar. From there you can see a list of
+types already created and a link that will lead you to the form.
+
+Click on the link and you be headed to form, fill with the name, small names are
+better, and a descriptive color, reflecting the severity (red for dangerous,
+green for good)
+
+ !!! note
+     To create you will need to be signed in.
+
+### Managing
+
+  As the other resources we can edit types by heading to the list view and
+  clicking on the edit pencil button, this will lead you to edition form.
+
+  To remove a type, you need to be a **Master**, just click on the times link.
+
+  !!! note
+      To edit a level you need to signed in
+
+      To remove a level you need a **Master** account.
