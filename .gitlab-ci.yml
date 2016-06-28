@@ -41,6 +41,6 @@ pages:
     paths:
       - site
   only:
-    - pages
+    - master
   tags:
     - docker
