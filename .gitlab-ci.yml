@@ -38,9 +38,11 @@ pages:
     - sh ./scripts/install-mkdocs.sh
     - pip install mkdocs-material
     - mkdocs build
+    - rm -fr public
+    - mv site public
   artifacts:
     paths:
-      - site
+    - public
   only:
     - master
   tags:
