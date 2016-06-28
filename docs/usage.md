@@ -113,4 +113,11 @@ To report a fire head to the Report Fire option under Fires menu, there you will
 !!! danger
     Report first to the competent authorities first and alert the Fireman first.
 
+!!! note
+    You need to be signed in to report a new fire.
+
+### Managing
+
+You can edit reports like any another resource, just click on the pencil icon on list view and you will be sent to edit form, from there you can save and/or see the full report.
+
 ## Severity Level
